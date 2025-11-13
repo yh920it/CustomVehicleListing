@@ -277,7 +277,7 @@ async function initDetailPage() {
       });
     }
 
-    // Now that slides are in the DOM, init Swiper
+    // Init Swipers
     const thumbSwiper = new Swiper(".thumb-swiper", {
       spaceBetween: 8,
       slidesPerView: 5,
@@ -306,23 +306,37 @@ async function initDetailPage() {
       },
     });
 
-    // Fullscreen overlay logic
+    // ------- FIXED FULLSCREEN LOGIC -------
     const overlay = document.getElementById("fullscreen-overlay");
     const overlayImg = document.getElementById("fullscreen-image");
     const closeFs = document.getElementById("close-fullscreen");
 
+    // Prevent accidental open on page load or Swiper movement
+    let clickStartTime = 0;
+
+    mainWrapper.addEventListener("mousedown", () => {
+      clickStartTime = Date.now();
+    });
+
     mainWrapper.addEventListener("click", (e) => {
-      const img = e.target.closest("img");
-      if (!img) return;
-      overlayImg.src = img.src;
+      // Ignore fast clicks caused by drag/swipe
+      if (Date.now() - clickStartTime < 150) return;
+
+      // Only respond to real image clicks
+      if (!e.target || e.target.tagName !== "IMG") return;
+
+      overlayImg.src = e.target.src;
       overlay.hidden = false;
     });
 
-    closeFs.addEventListener("click", () => {
+    // Close fullscreen - X button
+    closeFs.addEventListener("click", (e) => {
+      e.stopPropagation();
       overlay.hidden = true;
       overlayImg.src = "";
     });
 
+    // Close when clicking outside the image
     overlay.addEventListener("click", (e) => {
       if (e.target === overlay) {
         overlay.hidden = true;
@@ -330,16 +344,21 @@ async function initDetailPage() {
       }
     });
 
+    // ESC closes fullscreen
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && !overlay.hidden) {
+      if (e.key === "Escape") {
         overlay.hidden = true;
         overlayImg.src = "";
       }
     });
 
-    // Show detail
+    // Ensure overlay is fully hidden at load
+    overlay.hidden = true;
+
+    // Show detail section
     loadingEl.hidden = true;
     detailEl.hidden = false;
+
   } catch (err) {
     console.error(err);
     loadingEl.textContent = "Error loading vehicle: " + err.message;

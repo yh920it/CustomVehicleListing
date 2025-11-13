@@ -248,7 +248,7 @@ a:hover {
   position: fixed;
   inset: 0;
   background: rgba(15, 23, 42, 0.92);
-  display: flex;
+  display: off;
   align-items: center;
   justify-content: center;
   z-index: 9999; /* IMPORTANT */
@@ -280,5 +280,6 @@ a:hover {
 .close-fullscreen:hover {
   background: rgba(31, 41, 55, 0.95);
 }
+
 
 

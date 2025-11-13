@@ -245,11 +245,11 @@ a:hover {
 .fullscreen-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(15, 23, 42, 0.9);
+  background: rgba(15, 23, 42, 0.92);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 50;
+  z-index: 9999; /* IMPORTANT */
 }
 
 .fullscreen-overlay img {
@@ -257,22 +257,25 @@ a:hover {
   max-height: 96vh;
   object-fit: contain;
   border-radius: 0.5rem;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+  pointer-events: auto;
 }
 
 .close-fullscreen {
   position: fixed;
   top: 1rem;
   right: 1rem;
-  background: rgba(15, 23, 42, 0.85);
+  background: rgba(0, 0, 0, 0.7);
   border: 1px solid #4b5563;
-  border-radius: 999px;
-  color: #e5e7eb;
-  padding: 0.4rem 0.75rem;
+  border-radius: 0.4rem;
+  color: white;
+  padding: 0.4rem 0.8rem;
   cursor: pointer;
-  font-size: 1rem;
+  z-index: 10000; /* FIX */
+  font-size: 1.4rem;
+  pointer-events: auto; /* MAKE IT CLICKABLE */
 }
 
 .close-fullscreen:hover {
   background: rgba(31, 41, 55, 0.95);
 }
+

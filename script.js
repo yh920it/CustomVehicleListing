@@ -355,6 +355,49 @@ async function initDetailPage() {
     // Ensure overlay is fully hidden at load
     overlay.hidden = true;
 
+        // -------------------------------------
+    // ADMIN REORDER MODE
+    // -------------------------------------
+
+    const reorderUI = document.getElementById("reorder-mode");
+    const reorderContainer = document.getElementById("reorder-container");
+    const exportBtn = document.getElementById("export-order");
+    const outputBox = document.getElementById("export-output");
+
+    // Hidden toggle: Shift + R opens admin reorder mode
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "R" && e.shiftKey) {
+        reorderUI.hidden = !reorderUI.hidden;
+      }
+    });
+
+    // Populate drag list
+    reorderContainer.innerHTML = "";
+    images.forEach((url) => {
+      const div = document.createElement("div");
+      div.className = "reorder-item";
+      div.dataset.url = url;
+
+      div.innerHTML = `
+        <img src="${url}">
+        <span>${url}</span>
+      `;
+      reorderContainer.appendChild(div);
+    });
+
+    // Make sortable
+    Sortable.create(reorderContainer, {
+      animation: 150,
+      ghostClass: "sortable-ghost",
+    });
+
+    // Export updated order
+    exportBtn.addEventListener("click", () => {
+      const items = Array.from(reorderContainer.children);
+      const newOrder = items.map((i) => i.dataset.url).join(", ");
+      outputBox.value = newOrder;
+    });
+
     // Show detail section
     loadingEl.hidden = true;
     detailEl.hidden = false;
@@ -376,3 +419,4 @@ document.addEventListener("DOMContentLoaded", () => {
     initDetailPage();
   }
 });
+

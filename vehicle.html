@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Vehicle Details</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Swiper CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="detail">
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="back-link">← Back to Inventory</a>
+      <h1 id="vehicle-title">Vehicle Details</h1>
+      <p id="vehicle-subtitle" class="subtitle"></p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="detail-loading" class="loading">
+      Loading vehicle from Excel…
+    </div>
+
+    <div id="vehicle-detail" class="vehicle-detail" hidden>
+      <section class="vehicle-main">
+        <div class="vehicle-gallery">
+          <!-- Swiper main container -->
+          <div class="swiper main-swiper">
+            <div class="swiper-wrapper" id="swiper-main-wrapper">
+              <!-- Slides will be injected -->
+            </div>
+
+            <!-- Navigation buttons -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+
+            <!-- Pagination dots -->
+            <div class="swiper-pagination"></div>
+          </div>
+
+          <!-- Thumbnails Swiper -->
+          <div class="swiper thumb-swiper">
+            <div class="swiper-wrapper" id="swiper-thumb-wrapper">
+              <!-- Thumb slides will be injected -->
+            </div>
+          </div>
+        </div>
+
+        <div class="vehicle-info">
+          <h2>Specifications</h2>
+          <div class="spec-grid">
+            <div><span class="spec-label">Stock #</span><span id="spec-stock"></span></div>
+            <div><span class="spec-label">Year</span><span id="spec-year"></span></div>
+            <div><span class="spec-label">Make</span><span id="spec-make"></span></div>
+            <div><span class="spec-label">Model</span><span id="spec-model"></span></div>
+            <div><span class="spec-label">Trim</span><span id="spec-trim"></span></div>
+            <div><span class="spec-label">Price</span><span id="spec-price"></span></div>
+            <div><span class="spec-label">Mileage</span><span id="spec-mileage"></span></div>
+            <div><span class="spec-label">Color</span><span id="spec-color"></span></div>
+            <div><span class="spec-label">VIN</span><span id="spec-vin"></span></div>
+            <div><span class="spec-label">Condition</span><span id="spec-condition"></span></div>
+          </div>
+
+          <h2>Notes</h2>
+          <p id="spec-notes" class="notes"></p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Fullscreen overlay for images -->
+  <div id="fullscreen-overlay" class="fullscreen-overlay" hidden>
+    <button id="close-fullscreen" class="close-fullscreen">✕</button>
+    <img id="fullscreen-image" alt="Fullscreen vehicle image" />
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>Static vehicle detail page • Powered by Excel + GitHub Pages</small>
+    </div>
+  </footer>
+
+  <!-- SheetJS (XLSX) -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- App logic -->
+  <script src="script.js"></script>
+</body>
+</html>

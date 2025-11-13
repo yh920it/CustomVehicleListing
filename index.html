@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Vehicle Inventory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Swiper CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="list">
+  <header class="site-header">
+    <div class="container">
+      <h1>Vehicle Inventory</h1>
+      <p class="subtitle">Click a vehicle to view details and gallery</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="loading" class="loading">
+      Loading vehicles from Excel…
+    </div>
+
+    <div id="vehicle-list" class="vehicle-list" hidden></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>Static inventory viewer • Powered by Excel + GitHub Pages</small>
+    </div>
+  </footer>
+
+  <!-- SheetJS (XLSX) -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- App logic -->
+  <script src="script.js"></script>
+</body>
+</html>

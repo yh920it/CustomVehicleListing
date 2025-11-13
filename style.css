@@ -83,6 +83,8 @@ a:hover {
   flex-direction: column;
   cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.15s ease, border 0.15s ease;
+  height: 75%;
+  width: 25%;
 }
 
 .vehicle-card:hover {
@@ -278,4 +280,5 @@ a:hover {
 .close-fullscreen:hover {
   background: rgba(31, 41, 55, 0.95);
 }
+
 

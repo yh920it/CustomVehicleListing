@@ -80,6 +80,15 @@
     <button id="close-fullscreen" class="close-fullscreen">✕</button>
     <img id="fullscreen-image" alt="Fullscreen vehicle image" />
   </div>
+<!-- ADMIN REORDER MODE (HIDDEN BY DEFAULT) -->
+<div id="reorder-mode" class="reorder-mode" hidden>
+    <h2>Reorder Images (Admin Mode)</h2>
+    <div id="reorder-container" class="reorder-container"></div>
+
+    <button id="export-order" class="export-button">Export New Order</button>
+
+    <textarea id="export-output" class="export-output" placeholder="Updated order will appear here..."></textarea>
+</div>
 
   <footer class="site-footer">
     <div class="container">
@@ -95,6 +104,11 @@
 
   <!-- App logic -->
   <script src="script.js"></script>
+
+  <!-- Sortable.js for drag-and-drop -->
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+
 </body>
 
 </html>
+

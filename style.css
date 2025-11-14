@@ -7,14 +7,13 @@
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
-  background: #0b1120;
-  color: #e5e7eb;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #ffffff; /* was #0b1120 */
+  color: #000000; /* was #e5e7eb */
 }
 
 a {
-  color: #38bdf8;
+  color: #0077cc; /* neutral link color */
   text-decoration: none;
 }
 
@@ -31,31 +30,33 @@ a:hover {
 
 /* Header & Footer */
 .site-header {
-  background: #020617;
-  border-bottom: 1px solid #1f2937;
+  background: #e5e7eb; /* light gray (was black-ish) */
+  border-bottom: 1px solid #b0b0b0; /* slightly darker gray */
 }
 
 .site-header h1 {
   margin: 0.5rem 0;
   font-size: 1.6rem;
+  color: #000; /* ensure dark text */
 }
 
 .subtitle {
   margin-top: 0;
   margin-bottom: 0.5rem;
-  color: #9ca3af;
+  color: #555; /* subtle gray instead of light gray */
 }
 
 .back-link {
   display: inline-block;
   margin-bottom: 0.5rem;
   font-size: 0.95rem;
+  color: #000;
 }
 
 .site-footer {
-  border-top: 1px solid #1f2937;
-  background: #020617;
-  color: #6b7280;
+  border-top: 1px solid #b0b0b0;
+  background: #e5e7eb; /* light gray */
+  color: #333; /* dark text */
   font-size: 0.8rem;
 }
 
@@ -63,7 +64,7 @@ a:hover {
 .loading {
   text-align: center;
   padding: 2rem 0;
-  color: #9ca3af;
+  color: #555;
 }
 
 /* Vehicle list */
@@ -75,9 +76,9 @@ a:hover {
 }
 
 .vehicle-card {
-  background: #020617;
+  background: #ffffff; /* changed from near black */
   border-radius: 0.75rem;
-  border: 1px solid #1f2937;
+  border: 1px solid #1f2937; /* KEEP same border */
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -89,14 +90,14 @@ a:hover {
 
 .vehicle-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.8);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.8); /* KEEP same shadow */
   border-color: #38bdf8;
 }
 
 .vehicle-card-image-wrapper {
   width: 100%;
   aspect-ratio: 4 / 3;
-  background: radial-gradient(circle at center, #1f2937, #020617);
+  background: #f0f0f0; /* light gray instead of black gradient */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -117,11 +118,12 @@ a:hover {
   font-size: 1rem;
   font-weight: 600;
   margin: 0 0 0.25rem;
+  color: #000;
 }
 
 .vehicle-card-subtitle {
   font-size: 0.85rem;
-  color: #9ca3af;
+  color: #555;
   margin: 0 0 0.5rem;
 }
 
@@ -130,7 +132,7 @@ a:hover {
   flex-wrap: wrap;
   gap: 0.4rem 0.75rem;
   font-size: 0.8rem;
-  color: #9ca3af;
+  color: #444;
 }
 
 .badge {
@@ -138,14 +140,16 @@ a:hover {
   align-items: center;
   padding: 0.15rem 0.5rem;
   border-radius: 999px;
-  border: 1px solid #1f2937;
-  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid #1f2937; /* KEEP same border */
+  background: #f5f5f5; /* light bg */
+  color: #000;
 }
 
+/* PRICE BADGE: orange → green */
 .badge-price {
-  color: #f97316;
-  border-color: rgba(248, 171, 85, 0.4);
-  background: rgba(120, 53, 15, 0.6);
+  color: #16a34a; /* green text */
+  border-color: rgba(22, 163, 74, 0.5); 
+  background: rgba(187, 247, 208, 0.8); /* pale green bg */
 }
 
 /* Detail page */
@@ -166,22 +170,24 @@ a:hover {
 }
 
 .vehicle-gallery {
-  background: #020617;
+  background: #ffffff;
   border-radius: 0.75rem;
-  border: 1px solid #1f2937;
+  border: 1px solid #1f2937; /* KEEP */
   padding: 0.75rem;
 }
 
 .vehicle-info {
-  background: #020617;
+  background: #ffffff;
   border-radius: 0.75rem;
-  border: 1px solid #1f2937;
+  border: 1px solid #1f2937; /* KEEP */
   padding: 1rem 1.25rem;
+  color: #000;
 }
 
 .vehicle-info h2 {
   margin-top: 0;
   font-size: 1.1rem;
+  color: #000;
 }
 
 .spec-grid {
@@ -194,23 +200,25 @@ a:hover {
 .spec-grid div {
   display: flex;
   flex-direction: column;
+  color: #000;
 }
 
 .spec-label {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #6b7280;
+  color: #666;
 }
 
 .spec-grid span:last-child {
   font-size: 0.9rem;
+  color: #000;
 }
 
 .notes {
   white-space: pre-wrap;
   font-size: 0.9rem;
-  color: #d1d5db;
+  color: #333;
 }
 
 /* Swiper styling */
@@ -247,11 +255,11 @@ a:hover {
 .fullscreen-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(15, 23, 42, 0.92);
+  background: rgba(255, 255, 255, 0.92); /* white instead of black */
   display: off;
   align-items: center;
   justify-content: center;
-  z-index: 9999; /* IMPORTANT */
+  z-index: 9999;
 }
 
 .fullscreen-overlay img {
@@ -266,47 +274,49 @@ a:hover {
   position: fixed;
   top: 1rem;
   right: 1rem;
-  background: rgba(0, 0, 0, 0.7);
-  border: 1px solid #4b5563;
+  background: rgba(255, 255, 255, 0.7); /* light */
+  border: 1px solid #999;
   border-radius: 0.4rem;
-  color: white;
+  color: #000;
   padding: 0.4rem 0.8rem;
   cursor: pointer;
-  z-index: 10000; /* FIX */
+  z-index: 10000;
   font-size: 1.4rem;
-  pointer-events: auto; /* MAKE IT CLICKABLE */
+  pointer-events: auto;
 }
 
 .close-fullscreen:hover {
-  background: rgba(31, 41, 55, 0.95);
+  background: rgba(220, 220, 220, 0.95);
 }
 
 /* ADMIN REORDER MODE */
 .reorder-mode {
-  background: #0f172a;
+  background: #f0f0f0;
   padding: 1rem;
   margin-top: 2rem;
-  border: 1px solid #334155;
+  border: 1px solid #ccc;
   border-radius: 0.5rem;
+  color: #000;
 }
 
 .reorder-container {
   margin-top: 1rem;
-  background: #1e293b;
+  background: #fafafa;
   padding: 0.5rem;
   border-radius: 0.5rem;
 }
 
 .reorder-item {
-  background: #334155;
+  background: #e5e7eb;
   margin-bottom: 8px;
   padding: 0.5rem 0.75rem;
   border-radius: 0.4rem;
-  color: #f1f5f9;
+  color: #000;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   cursor: grab;
+  border: 1px solid #bbb;
 }
 
 .reorder-item img {
@@ -319,11 +329,11 @@ a:hover {
 .export-button {
   margin-top: 1rem;
   padding: 0.5rem 1rem;
-  background: #38bdf8;
+  background: #4ade80; /* green */
   border: none;
   border-radius: 0.4rem;
   cursor: pointer;
-  color: #0f172a;
+  color: #000;
   font-weight: 600;
 }
 
@@ -331,9 +341,9 @@ a:hover {
   width: 100%;
   height: 120px;
   margin-top: 1rem;
-  background: #1e293b;
-  border: 1px solid #475569;
-  color: #e2e8f0;
+  background: #ffffff;
+  border: 1px solid #ccc;
+  color: #000;
   padding: 0.5rem;
   border-radius: 0.4rem;
   font-family: monospace;

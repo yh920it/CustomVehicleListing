@@ -58,6 +58,8 @@ a:hover {
   background: #e5e7eb; /* light gray */
   color: #333; /* dark text */
   font-size: 0.8rem;
+  padding-top: 3px;
+  padding-bottom: 5px;
 }
 
 /* Loading */
@@ -348,3 +350,4 @@ a:hover {
   border-radius: 0.4rem;
   font-family: monospace;
 }
+
